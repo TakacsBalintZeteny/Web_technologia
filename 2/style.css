@@ -1,0 +1,62 @@
+.bi {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.b {
+    font-weight: bold;
+}
+
+.i {
+    font-style: italic;
+    text-align: right;
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration:underline;
+    font-size: 55px;
+}
+
+p {
+    font-size: 18px;
+    text-align: justify;
+}
+
+#neumann {
+    background-color: lightgrey;
+    border: 1px black solid;
+    border-radius: 5px;
+    width: 60%;
+}
+
+#kep1
+{
+    width: 50%;
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 5%;
+}
+
+h2 {
+    text-align: center;
+    background-color: gray;
+    margin: 3% 5% 1% 5%;
+    padding: 2% 1%;
+}
+
+.li1 {
+    list-style: none;
+}
+
+.li2 {
+    list-style: disc;
+}
+
+#ul1 {
+    padding-left: 2%;
+}
