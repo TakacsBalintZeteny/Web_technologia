@@ -1,0 +1,104 @@
+<!DOCTYPE>
+
+<html>
+    <head>
+        <title>Operációs rendszerek</title>
+        <link rel="icon" href="win7.png" type="image/x-icon">
+    </head>
+
+    <body>
+        <h1>Operációs rendszerek</h1>
+
+        <h2>Bevezetés</h2>
+        <p>
+            Operációs rendszernek (röviden OS az angol operating system alapján) nevezzük a számítástechnikában a számítógépeknek azt az alapprogramját, 
+            mely közvetlenül kezeli a hardvert, és egy egységes környezetet biztosít a számítógépen futtatandó alkalmazásoknak (például szövegszerkesztők, játékok stb.).
+            A kezelt hardver-erőforrásoknak része többek között a memória, a processzor, a merevlemez és a perifériás eszközök használata.
+        </p>
+
+        <hr>
+        <h2>Felépítés</h2>
+        <p>Az operációs rendszerek alapvetően három részre bonthatók: a felhasználói felület (a shell, amely lehet egy grafikus felület, vagy egy szöveges), alacsony szintű segédprogramok és a kernel (mag), amely közvetlenül a hardverrel áll kapcsolatban. Vannak olyan operációs rendszerek, melyekben a kernel (mag) és a shell (héj) különválnak, így lehetőség nyílik ezek kombinációjára. Más rendszereknél, mint például a Windowsnál, ez a különválasztás mind elméleti, mind gyakorlati szempontból nehezebb.</p>
+
+        <img src="Operating_system_placement-hu.png">
+
+            <h3>Kernel típusok</h3>
+            <ul>
+                <li>monolitikus kernel</li>
+                <li>mikrokernel</li>
+                <li>exokernel</li>
+                <li>hibrid kernel</li>
+            </ul>
+            <p>A Unix monolitikus kernelre épül, ami mára elavultnak tekinthető, bár szerverek esetén szerencsés az ilyen. Ezeken a rendszereken nem különülnek el alapvetően a folyamat vezérlési, tárolási feladatok, illetve a rendszerhívások. A mikrokernel annyira kicsi, amennyire lehet, gyakorlatilag az egyetlen feladata az erőforrások újraelosztása az alkalmazások között. A Linux kernelje monolitikus kernel, azonban a programkód fordításakor megszabhatjuk, hogy mely részek kerüljenek betölthető állapotba, illetve melyek ne, így lehetőségünk van a modulok futás közbeni, dinamikus betöltésére, ami különösen asztali operációs rendszerek esetén célszerű. A Windows által használt hibrid kernel is ránézésre egy mikrokernel, de itt kernel módban fut az üzenetkezelés (Application IPC), és az eszközillesztők. (vö.: A Windows Vista új drivermodelljén egyes elemek átkerültek a felhasználói rétegbe).</p>
+
+            <h3>A kernel feladatai</h3>
+            <ul>
+                <li>Ki- és bemeneti eszközök kezelése (billentyűzet, monitor, stb.)</li>
+                <li>Programok, folyamatok futásának kezelése</li>
+                    <ul>
+                        <li>Indítás, futási feltételek biztosítása, leállítás</li>
+                        <li>Memória-hozzáférés biztosítása</li>
+                        <li>Processzor idejének elosztása</li>
+                        <li>Virtuális gép mutatása a nemkívánt taszkok felé</li>
+                    </ul>
+                <li>Háttértárolók kezelése</li>
+                <li>Rendszerhívások kiszolgálása</li>
+                <li><a href="https://hu.wikipedia.org/wiki/F%C3%A1jlrendszer">Fájlrendszer</a></li>
+                <li>egyéb</li>
+            </ul>
+
+            <h3>A shell feladatai</h3>
+            <ul>
+                <li>Kapcsolattartás a felhasználóval (felhasználói felület)</li>
+                <li>Alkalmazások futásának kezelése (indítás, futási feltételek biztosítása)</li>
+            </ul>
+            <p>A shell nélkül nem lehet programokat indítani. Tágabb értelemben UNIX alatt minden olyan programot shell-nek hívnak, melyek más alkalmazások elindítására képesek (a szöveges parancssor nem feltétel). Egy shell rendelkezhet grafikus, ikonos indító felülettel is, mint például az Ubuntu Unity vagy az Androidos launcher.</p>
+        
+        <hr>      
+        <h2>Operációs rendszer feladatai</h2>
+        <p>Az operációs rendszer feladatai közé tartozik, hogy felkészítse a számítógépet az alkalmazások futtatására. Az indítási folyamat során pontosan ez történik. Miután a számítógép öntesztje lefutott, a BIOS keresni kezdi az operációs rendszert a rendszertöltő szektorokban, és az elsőt, amit megtalál elindítja. Elsőként a kernel töltődik be és indul el. Innentől rendszerfüggő a folytatás, de nagy vonalakban általánosítható.</p>
+        <ul>
+            <li><b>Eszközök inicializálása:</b> A rendszer keresi az új hardvereszközöket, a meglévőkhöz pedig betölti és elindítja az illesztő programot. (DOS-ban pl. config.sys)</li>
+            <li><b>Szolgáltatások elindítása</b>Szolgáltatások elindítása</li>
+            <li><b>Felhasználói interakció megkezdése</b></li>
+                <ul>
+                        <li><b>Bejelentkeztetés:</b>Bejelentkeztetés: Több felhasználós rendszerek esetén mielőtt a felhasználó kapcsolatba lépne a számítógéppel, azonosítania kell magát, általában felhasználói névvel és jelszóval.</li>
+                        <li><b>Automatikusan induló programok indítása:</b> Ide tartoznak azok a programok, amik segítik a felhasználó kapcsolattartását a számítógéppel, illetve azok is, amiket ő maga jelölt ki. Tipikus vállalati példa a bejelentkezés után induló e-mail kliens.
+                        </li>
+                </ul>
+        </ul>
+
+        <hr>
+        <h2>Operációs rendszer változatok</h2>
+        <table>
+            <tr>
+                <th></th>
+                <th>Legelterjedtebbek otthoni számítógépeken</th>
+                <th>Történelmi vagy hobbi OP</th>
+                <th>Szervert futtatni képes OP</th>
+                <th>Beágyazott vagy mobil OP</th>
+            </tr>
+            <tr>
+                <td><i>Microsoft</i></td>
+                <td>Microsoft Windows</td>
+                <td>MS-DOS</td>
+                <td>Microsoft Servers</td>
+                <td>Windows Phone</td>
+            </tr>
+            <tr>
+                <td><i>Apple</i></td>
+                <td>Mac OS X</td>
+                <td>Mac OS</td>
+                <td>-</td>
+                <td>IOS</td>
+            </tr>
+            <tr></tr>
+                <td><i>Linus Torvalds</i></td>
+                <td>Linux</td>
+                <td>MINIX</td>
+                <td>Linux</td>
+                <td>-</td>
+            </tr>
+        </table>
+    </body>
+</html>
