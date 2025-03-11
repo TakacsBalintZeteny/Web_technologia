@@ -11,19 +11,28 @@ alert("Kezdés!");
 
 for (let i = 0; i < 20; i++)
 {
-    szam = parseInt(prompt("Tippelj!"));
+    szam = prompt("Tippelj!");
+    szam = parseInt(szam);
+
+
+    while (isNaN(szam) == true); {
+        szam = prompt("Tippelj!");
+        szam = parseInt(szam);
+      }
+
 
     if (szam == randomSzam)
     {
-        alert("Gratulálok, ", szam, " lépésből eltaláltad!");
+        alert("Gratulálok, ${szam} lépésből eltaláltad!");
+        break;
     }
     else if (szam > randomSzam)
     {
-        alert(szam, ". tipp nem talált: A megoldás kisebb.");
+        alert("${szam} tipp nem talált: A megoldás kisebb.");
     }
     else
     {
-        alert(szam, ". tipp nem talált: A megoldás nagyobb");
+        alert("${szam} tipp nem talált: A megoldás nagyobb");
     }
 
 }
