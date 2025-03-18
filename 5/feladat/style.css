@@ -1,0 +1,40 @@
+li::selection {
+    text-decoration: line-through
+}
+
+#teendo {
+    text-align: center;
+    background-color: beige;
+}
+
+#divv {
+    text-align: center;
+    align-items: center;
+    border: 1px solid black;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 200px;
+    background-color: antiquewhite;
+
+}
+
+#gomb {
+    padding: 10px;
+    border: 0;
+    background-color: blue;
+    color: whitesmoke;
+    text-align: center;
+}
+
+#gomb:hover
+{
+    background-color: aqua;
+    color: black;
+}
+
+#gomb:active
+{
+    width: 80px;
+    height: 30px;
+    text-align: center;
+}
