@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p>Repository keresése</p>
+
+    <label for="repo-name">Repository neve:</label>
+    <input type="text" id="repo-name">
+    <button id="repo-btn" class="btn btn-primary">keresés</button>
+
+    <div id="result"></div>
+
+    <script src="app.js"></script>
+
+
+
+
+
+    <script>
+        function loadRepositiries(searchText)
+        {
+            fetch('https://api.github.com/search/repositories?q=' + encodeURIComponent(searchText), {
+                headers: {
+                    'Authorization': 'Bearer ' + GitHubToken
+                }
+            })
+            .then(res => res.json())
+            .then(result => {
+                //console.log(result); //description, full-name, topics
+                const resultDiv = document.querySelector('#result')
+                resultDiv.innerHTML = ' ';
+
+                for (const repo of result.items)
+                    {
+                        const repoHtml = `
+                        <div class="card">
+                            <a href="repo.html?name=${repo.full_name}"><h4>${repo.full_name}</h4></a>
+                            <p>${repo.description}</p>
+                            <p><strong>Topics: ${repo.topics.join(', ')}</strong></p>
+                        </div>
+                        `;
+
+                        resultDiv.innerHTML += repoHtml;
+                    }
+            })
+        }
+
+
+        const searchBtn = document.querySelector('#repo-btn');
+        searchBtn.addEventListener('click', () => {  //eseménykezelés
+            const searchText = document.querySelector('#repo-name').value;
+            loadRepositiries(searchText);
+        })
+    </script>
+
+
+
+</body>
+</html>
