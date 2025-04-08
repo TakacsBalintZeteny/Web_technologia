@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p>Felhasználók keresés:</p>
+
+    <label for="user-name">Felhasználó neve:</label>
+    <input type="text" id="user-name">
+    <button id="user-btn" class="btn btn-primary">keresés</button>
+
+    <div id="result"></div>
+
+    <script src="app.js"></script>
+
+    <script>
+        function loadUsers(searchText)
+        {
+            fetch('https://api.github.com/search/users?q=' + encodeURIComponent(searchText), {
+                headers: {
+                    'Authorization': 'Bearer ' + GitHubToken
+                }
+            })
+            .then(res => res.json())
+            .then(result => {
+                //console.log(result); //description, full-name, topics
+                const resultDiv = document.querySelector('#result')
+                resultDiv.innerHTML = ' ';
+
+                for (const user of result.items)
+                    {
+                        const user = `
+                        <div class="card">
+                            <a href="user.html?name=${user.full_name}"><h4>${user.full_name}</h4></a>
+                            <p>${user.description}</p>
+                            <p><strong>Topics: ${user.topics.join(', ')}</strong></p>
+                        </div>
+                        `;
+
+                        resultDiv.innerHTML += userHtml;
+                    }
+            })
+        }
+
+
+        const searchBtn = document.querySelector('#user-btn');
+        searchBtn.addEventListener('click', () => {  //eseménykezelés
+            const searchText = document.querySelector('#user-name').value;
+            loadUsers(searchText);
+        })
+    </script>
+</body>
+</html>

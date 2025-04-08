@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+        <h1>Felhasználók</h1>
+
+        <div id="user-profile"></div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('id');
+
+        fetch(`https://api.github.com/users/${username}`)
+            .then(response => response.json())
+            .then(data => {
+                const userProfile = document.getElementById('user-profile');
+                if (data.message === 'Not Found') {
+                    userProfile.innerHTML = '<p>Felhasználó nem található!</p>';
+                    return;
+                }
+
+                let profileHTML = `
+                    <img src="${data.avatar_url}" alt="${data.name}" class="avatar">
+                    <h2>${data.name || 'Név nem elérhető'}</h2>
+                    <p><strong>Blog:</strong> ${data.blog || 'Nincs blog'}</p>
+                    <p><strong>Hely:</strong> ${data.location || 'Nincs megadva'}</p>
+                    <p><strong>Bio:</strong> ${data.bio || 'Nincs bio'}</p>
+                    <p><strong>Nyilvános repók:</strong> ${data.public_repos}</p>
+                    <p><strong>Követők:</strong> ${data.followers}</p>
+                `;
+                userProfile.innerHTML = profileHTML;
+            })
+     </script>
+
+<script src="app.js"></script>
+</body>
+</html>
