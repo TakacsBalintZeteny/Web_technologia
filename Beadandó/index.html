@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Takács Bálint Zétény">
+        <link rel="stylesheet" href="style.css">
+        <title>Autók</title>
+
+    </head>
+
+    <body>
+
+        <header>
+            <h1>Autók</h1>
+        </header>
+
+        <main>
+
+            <!-- Listázás -->
+            <div class="elemek">
+                <h2>Autók listázása</h2>
+                <button id="btnListazas" class="gomb">Autók betöltése</button>
+                <div id="car-list"></div>
+                <div id="car-details" class="hidden"></div>
+            </div>
+
+            <!-- Hozzáadás -->
+            <div class="elemek">
+                <h2>Autó hozzáadása</h2>
+                <button id="btnHozzaadas" class="gomb">Autó hozzáadása</button>
+
+                <label>Add meg az ID-t: </label>
+                <input type="text" id="hozzáadásID" value="100">
+                <label>Add meg a gyártótt: </label>
+                <input type="text" id="hozzáadásBrand" value="Gyarto">
+                <label>Add meg a modellt: </label>
+                <input type="text" id="hozzáadásModel" value="Modell">
+                <label>Add meg a fogyasztást: </label>
+                <input type="text" id="hozzáadásFuelUse" value="7">
+                <label>Add meg a tulajdonost: </label>
+                <input type="text" id="hozzáadásOwner" value="Valaki">
+                <label>Add meg a forgalomba helyezés dátumát (év-hónap-nap): </label>
+                <input type="text" id="hozzáadásYear" value="2000-01-01">
+                <label>Add meg hogy elektromos-e (false / true): </label>
+                <input type="text" id="hozzáadásElectric" value="false">
+            </div>
+
+            <!-- Módosítás -->
+            <div class="elemek">
+                <h2>Autó módosítása</h2>
+                <button id="btnModosítas" class="gomb">Autó módosítása</button>
+                <label>Módosítani kívánt autó ID-je: </label>
+                <input type="text" id="modositandoID">
+
+                <label></label>
+            </div>
+
+            <!-- Törlés -->
+            <div class="elemek"> 
+                <h2>Autó törlése</h2>
+                <button id="btnTorles" class="gomb">Autó törlése</button>
+                <label>Törölni kívánt autó ID-je: </label>
+                <input type="text" id="torlendoID">
+            </div>
+
+        </main>
+
+        <script src="script.js"></script>
+
+    </body>
+
+</html>
